@@ -1,0 +1,73 @@
+# ─── OS-specific ───────────────────────────────────────────────
+.DS_Store
+__MACOSX/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ─── Node.js dependencies ──────────────────────────────────────
+node_modules/
+.npm/
+.pnp.*
+.yarn/install-state.gz
+
+# ─── Build outputs ─────────────────────────────────────────────
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# ─── Logs ──────────────────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+*.log
+
+# ─── Environment / secrets ─────────────────────────────────────
+# Every .env variant is ignored EXCEPT .env.example which IS committed
+.env
+.env.*
+!.env.example
+
+# ─── Credentials / keys (extra safety) ────────────────────────
+# Anything that looks like a private key or AWS material
+*.pem
+*.key
+*.p12
+*.pfx
+.aws/
+aws-exports.js
+
+# ─── IDE / editor ──────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*~
+
+# ─── Test + coverage ───────────────────────────────────────────
+coverage/
+.nyc_output/
+*.lcov
+
+# ─── Cache directories ─────────────────────────────────────────
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+
+# ─── Docker volumes (if mapped to repo dir) ───────────────────
+# Local DB data shouldn't be committed
+mysql-data/
+postgres-data/
+
+# ─── Misc ──────────────────────────────────────────────────────
+.claude/
+*.tmp
+*.bak
+*.orig
