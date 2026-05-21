@@ -1,0 +1,79 @@
+{
+  "_comment": "STUB ECS task definition for the cs436-ecommerce backend. EC2 launch type (course requires use of VMs), bridge networking. Secrets sourced from AWS Secrets Manager (not Parameter Store) per budget-reversal decision 2026-05-19. The secret JSON shape is {host, port, dbname, username, password} for the DB secret and {secret} for the JWT secret. Each Secrets Manager ARN includes a 6-char random suffix AWS appends to the secret name (e.g., 'cs436-ecommerce/db-A1B2C3'); replace placeholders accordingly. See helper/04_workflow_plan.md Step 3.2 + Step 4.5 for the full deployment context.",
+
+  "family": "cs436-ecommerce-api",
+  "requiresCompatibilities": ["EC2"],
+  "networkMode": "bridge",
+  "executionRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/cs436-ecommerce-ecs-execution",
+  "taskRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/cs436-ecommerce-ecs-task",
+  "cpu": "512",
+  "memory": "512",
+
+  "containerDefinitions": [
+    {
+      "name": "ecommerce-api",
+      "image": "<ACCOUNT_ID>.dkr.ecr.eu-west-1.amazonaws.com/ecommerce-backend:<GIT_SHA>",
+      "essential": true,
+      "cpu": 512,
+      "memory": 512,
+      "portMappings": [
+        {
+          "containerPort": 5002,
+          "hostPort": 5002,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        { "name": "NODE_ENV", "value": "production" },
+        { "name": "PORT", "value": "5002" },
+        { "name": "AWS_REGION", "value": "eu-west-1" },
+        { "name": "CORS_ORIGIN", "value": "https://<CLOUDFRONT_DNS>" },
+        { "name": "EMAIL_FROM", "value": "<verified-ses-sender@example.com>" },
+        { "name": "DB_HOST", "value": "<rds-endpoint>.eu-west-1.rds.amazonaws.com" },
+        { "name": "DB_PORT", "value": "3306" },
+        { "name": "DB_NAME", "value": "online_store" }
+      ],
+      "secrets": [
+        {
+          "name": "DB_USER",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:<ACCOUNT_ID>:secret:cs436-ecommerce/db-<6char>:username::"
+        },
+        {
+          "name": "DB_PASS",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:<ACCOUNT_ID>:secret:cs436-ecommerce/db-<6char>:password::"
+        },
+        {
+          "name": "JWT_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:<ACCOUNT_ID>:secret:cs436-ecommerce/jwt-<6char>:secret::"
+        }
+      ],
+      "healthCheck": {
+        "command": ["CMD-SHELL", "wget -qO- http://localhost:5002/health || exit 1"],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 10
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/cs436-ecommerce-api",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "api"
+        }
+      },
+      "user": "node",
+      "readonlyRootFilesystem": false,
+      "linuxParameters": {
+        "capabilities": {
+          "drop": ["ALL"]
+        }
+      }
+    }
+  ],
+
+  "tags": [
+    { "key": "Project", "value": "CS436-Ecommerce" },
+    { "key": "Layer", "value": "compute" }
+  ]
+}

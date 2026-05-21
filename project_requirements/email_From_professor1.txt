@@ -1,0 +1,23 @@
+	
+Dear all,
+
+I asked your project ideas to see your interest areas, and plan for some consultancy if you ever need it. You can always change your project topic, given you have plans to finish it on time.
+
+Some of your friends have asked about what they can do as a cloud project. I'd like to share my response in below.
+
+Do not think of this course project as a "Cloud Project". Cloud is a set of resources and tools where you will deploy, run, and maintain your solution. Therefore, given enough focus and effort, anything can be hosted in cloud.
+On the other hand, as this will be a group project of up to 4 people, I expect your solution to use several AWS services integrated with each other.
+
+I recommend you to first determine what you would like to work on. Is it mobile app, e-commerce website, ci/cd pipeline, AI/ML modelling (would be costly so I'm not recommending), IoT platform, etc.
+Once this is decided, the next step is to build a high-level design of the solution. This will also be part of your Project Report. I will expect all the groups to properly articulate the components in your solution and how they integrate with each other.
+Then, you can check which cloud services can be applicable to your needs. For example;
+
+* Will you use VMs? Containers? Serverless Functions?
+* Which Storage type will you use?
+* How will you setup your network? How many subnets? Private/Public networks?
+* Will your solution require a DB? multiple DBs? If yes, in which form?
+* Will you use Load Balancing for your apps?
+* How will you manage the High Availability of your solution? How will you ensure uptime? What will be your backup strategy? Your restore strategy in case of failures, disaster recoveries, etc..
+* How will you ensure your app's security?
+* How will you monitor your resource usage? Your apps' health?
+* ...

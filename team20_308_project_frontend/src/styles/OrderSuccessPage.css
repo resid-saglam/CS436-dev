@@ -1,0 +1,63 @@
+/* wrapper */
+.success-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 250px;
+  background:  #F4F4F4; /* same beige tone you picked */
+  text-align: center;
+}
+
+/* headline */
+.success-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+
+/* subtitle (‼️ new) */
+.success-sub {
+  margin-top: 8px; /* snug under headline */
+  font-size: 20px;
+  color: #000; /* black instead of white */
+}
+
+/* buttons */
+.success-buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 24px;
+}
+
+.success-btn {
+  padding: 14px 32px;
+  font-size: 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border 0.25s ease;
+}
+
+/* filled */
+.success-btn.primary {
+  background: #0033a0;
+  color: #fff;
+  border: none;
+}
+.success-btn.primary:hover {
+  background: #00257a;
+}
+
+/* outlined */
+.success-btn.outline {
+  background: transparent;
+  color: #0033a0;
+  border: 2px solid #0033a0;
+}
+.success-btn.outline:hover {
+  background: #0033a0;
+  color: #fff;
+}

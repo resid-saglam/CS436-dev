@@ -1,0 +1,11 @@
+* The grading will be based on following;
+
+System Design and Complexity 30 % : We will evaluate your system characteristics such as security, service availability, durability, etc. We will also check the level of complexity. A very basic system design will not be appealing, however you must also ensure that you should not give up of critical characteristics just to make it more complex.
+
+Usage of Cloud Services 30 % : How did you use Cloud services to meet your system's demands? How many different services you used? How did you configure them? Etc. The more services you use and integrate to each other as part of the system, the better.
+
+Solution Readiness 20%: How ready is your system? Is it completely functional? Are the apps running on your system doing their work? How close you are to your end goal? Please ensure you add a demo in your presentation so we can evaluate the status better.
+
+Report Quality 10%: The most important point is whether the content is clear so reader can understand the system description. Additional check points; Is your report complete? Were you able to provide all requested data, with a good level of explanation? Is your text's grammar correct?
+
+Presentation Quality 10%: Similar to report. Were you able to properly articulate the aim of the project and your system's design? How good is your app's demo (if it exists)? Is the audience able to understand what you present?

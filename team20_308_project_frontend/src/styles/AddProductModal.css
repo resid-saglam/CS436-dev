@@ -1,0 +1,40 @@
+/* Form ızgarası */
+.add-product-modal .modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.add-product-modal .modal-grid input,
+.add-product-modal .modal-grid textarea,
+.add-product-modal .modal-grid label {
+  width: 100%;
+}
+.add-product-modal .modal-grid textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+.add-product-modal .checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Başlık altında küçük boşluk */
+.add-product-modal h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #143fa0;
+  text-align: center;
+}
+
+/* Override modal-box genişliğini */
+.add-product-modal {
+  max-width: 600px;
+}
+
+/* Buton stilleri (Modal.css içinden) */
+.modal-actions {
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}

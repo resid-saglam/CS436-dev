@@ -1,0 +1,114 @@
+/* ---------- basit modal görünümü ---------- */
+.pm-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+.pm-modal {
+    background: #fff;
+    width: 480px;
+    max-height: 80vh;
+    margin-top: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.pm-modal h2 {
+    margin: 0;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.25rem;
+}
+
+.pm-modal-body {
+    padding: 16px 20px;
+    overflow: auto;
+    flex: 1;
+}
+
+.picker-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.pm-modal-actions {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+/* ---------- butonlar ---------- */
+.pm-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+}
+
+.pm-btn--primary   { background: #0066d4; }
+.pm-btn--secondary { background: #0066d4; }
+.pm-btn--danger    { background: #d32f2f; }
+
+.pm-btn:disabled   { opacity: 0.6; cursor: not-allowed; }
+.pm-btn:hover:not(:disabled) { opacity: 0.9; }
+
+
+/* … önceki içerik … */
+
+.picker-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.picker-table th,
+.picker-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #eee;
+}
+.picker-table tbody tr:hover {
+    background: #f7faff;
+}
+
+.pm-btn.mini {
+    padding: 0 6px;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+/* … önceki içerik … */
+
+.form-label { font-size: 0.9rem; font-weight: 600; display:block; margin-bottom:4px;}
+.form-input { padding:8px 10px;border:1px solid #ccc;border-radius:4px;}
+
+.icon-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;}
+.icon-btn {
+    width:40px; height:40px; border:1px solid #ccc; border-radius:6px;
+    display:flex; align-items:center; justify-content:center; background:#fff; cursor:pointer;
+}
+.icon-btn--active { border-color:#0066d4; background:#e4f1ff; }
+
+.pm-modal-actions.center { justify-content: center; gap: 20px; }
+
+/* ----- Align action buttons ----- */
+.pm-modal-actions.center { justify-content: center; }
+.pm-modal-actions.evenly { gap: 40px; }
+
+/* optional: make buttons equal width */
+.pm-modal-actions.evenly .pm-btn {
+    min-width: 110px;
+}

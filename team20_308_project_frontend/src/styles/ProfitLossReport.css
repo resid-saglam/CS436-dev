@@ -1,0 +1,79 @@
+.pl-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.pl-title {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.pl-date-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.pl-date-row label {
+  margin-right: 8px;
+  font-size: 1.6rem;
+}
+
+.pl-date-row input {
+  padding: 10px;
+  font-size: 1.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.generate-btn {
+  padding: 14px 24px;
+  margin-left: 1rem;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.generate-btn:hover {
+  background-color: #45a049;
+}
+
+.generate-btn:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+.pl-summary {
+  margin: 16px 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.pl-text {
+  margin: 8px 0;
+  font-size: 1.6rem;
+}
+
+.pl-value {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.pl-error {
+  color: crimson;
+  margin-top: 8px;
+  font-size: 1.4rem;
+}
+
+.pl-chart {
+  margin-top: 30px;
+}

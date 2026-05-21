@@ -1,0 +1,72 @@
+# docker-compose.yml (project root)
+# Local stack for CS 436 demo: MySQL + Express API + React (nginx).
+# For AWS deployment we use Amazon RDS MySQL, not this mysql service.
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      # These values are pulled from the root .env file (see .env.example).
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password_change_me}
+      MYSQL_DATABASE: ${DB_NAME:-online_store}
+      MYSQL_USER: ${DB_USER:-app_user}
+      MYSQL_PASSWORD: ${DB_PASS:-app_password}
+    # No host port mapping by default — avoids clashes with a local MySQL on 3306.
+    # Uncomment to expose for Workbench / DBeaver:
+    #   ports:
+    #     - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  api:
+    build: ./team_20_308_project_backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - PORT=5002
+      # Override DB_HOST to the docker-network service name so the api
+      # always reaches the mysql container regardless of host .env value.
+      - DB_HOST=mysql
+      - DB_PORT
+      - DB_NAME
+      - DB_USER
+      - DB_PASS
+      - JWT_SECRET
+      - EMAIL_USER
+      - EMAIL_PASS
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "5002:5002"
+    networks:
+      - internal
+
+  web:
+    build:
+      context: ./team20_308_project_frontend
+      args:
+        VITE_API_URL: http://localhost:5002/api
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "5173:80"
+    networks:
+      - internal
+
+volumes:
+  mysql_data:
+
+networks:
+  internal:

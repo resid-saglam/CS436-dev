@@ -1,0 +1,120 @@
+/* src/styles/SearchResultCard.css */
+
+.search-card-wrapper {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  padding: 16px;
+  gap: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.search-card-wrapper:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.search-card {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  gap: 24px;
+  width: 100%;
+}
+
+.card-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+}
+
+.card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.product-model {
+  color: #4f4f4f;
+  font-size: 14px;
+}
+
+.product-rating {
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff5722;
+  margin-top: 8px;
+}
+
+.add-to-cart-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #00287a; /* bir tık koyusu */
+}
+.wishlist-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.wishlist-icon {
+  width: 24px;
+  height: 24px;
+  color: red;
+}
+
+.wishlist-btn.in-wishlist .wishlist-icon {
+  color: #ff0000;
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.wishlist-icon {
+  width: 24px;
+  height: 24px;
+  color: red;
+}
+
+.wishlist-btn.in-wishlist .wishlist-icon {
+  color: #ff0000;
+}

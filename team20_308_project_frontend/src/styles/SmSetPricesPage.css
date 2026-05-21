@@ -1,0 +1,93 @@
+/* genel görünüm --------------------------------------------------------- */
+.sm-set-prices {
+    font-family: "Segoe UI", Arial, sans-serif;
+    max-width: 1150px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .sm-set-prices h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* kart görünümü (PM panelindeki gibi) ---------------------------------- */
+  .sm-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+  }
+  
+  .sm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  
+  /* başlık satırı — koyu TechPoint mavisi */
+  .sm-table thead th {
+    background: #0d2c8d;
+    color: #fff;
+    padding: 12px 8px;
+    text-align: left;
+  }
+  
+  .sm-table tbody td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  /* zebra çizgisi */
+  .sm-table tbody tr:nth-child(even) {
+    background: #f9fbff;
+  }
+  
+  /* input & butonlar ------------------------------------------------------ */
+  .sm-table input {
+    width: 100px;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .sm-table button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .sm-table button:hover {
+    background: #0056b3;
+  }
+  
+  /* toast --------------------------------------------------------------- */
+  .toast-popup {
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    background: #1e90ff;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+    z-index: 1000;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

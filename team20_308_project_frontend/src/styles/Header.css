@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* Renk Paleti */
+:root {
+  --color-primary: #0333a0; /* Lacivert */
+  --color-bg: #ffffff; /* Beyaz */
+  --color-text: #1a1a1a; /* Siyah */
+  --color-light-gray: #f2f2f2; /* Kart/hover */
+  --color-dark-gray: #f4f4f4; /* Pasif alanlar */
+
+  --transition-speed: 0.3s;
+  --box-shadow-default: 0 1px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.header-top-line {
+  height: 15px;
+  background-color: #0033a0;
+  width: 100%;
+}
+
+.header-bottom-line {
+  height: 30px;
+  background-color: #0033a0;
+  width: 100%;
+}
+/* Genel header ayarı: beyaz zemin, yatay yerleşim */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg); /* Beyaz arkaplan */
+  padding: 16px 40px;
+  box-shadow: var(--box-shadow-default);
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* -------- LOGO KISMI -------- */
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+}
+
+/* Daire içindeki harf (ör. 'T') -> Currys logosu gibi daire içinde */
+.logo-circle {
+  width: 46px;
+  height: 46px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  color: #ffffff; /* İçerideki harf beyaz */
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Logonun hemen yanındaki 'TechPoint' yazısı */
+.logo-title {
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-text); /* Siyah metin */
+  margin: 0;
+}
+
+/* -------- ORTA: ARAMA ALANI -------- */
+.search-wrapper {
+  flex: 1; /* Ortada genişlemesi için */
+  display: flex;
+  justify-content: center;
+  margin: 0 40px; /* soldan ve sağdan boşluk */
+}
+
+/* Arka planı beyaz, etrafı ince gri çerçeve */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 999px; /* Yumuşak oval kenar */
+  overflow: hidden; /* Kenarların dışı taşmasın */
+  background-color: var(--color-bg);
+  width: 500px; /* Arama kutusu genişliği (isteğe göre) */
+  max-width: 70%;
+}
+
+/* Gerçek input alanı */
+.search-bar-input {
+  flex: 1; /* Genişlemesi için */
+  border: none;
+  padding: 10px 16px;
+  outline: none;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text);
+}
+
+.search-bar-input::placeholder {
+  color: #666;
+}
+
+/* Sağdaki buton: Currys'teki gibi daire içinde arama ikonu */
+.search-bar-button {
+  background-color: var(--color-primary);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.search-bar-button:hover {
+  background-color: #02297e; /* Bir ton koyu mavi */
+}
+
+/* -------- SAĞDAKİ BUTONLAR -------- */
+.header-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* İkon + metin şeklinde buton */
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  color: var(--color-text);
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.icon-button:hover {
+  background-color: var(--color-light-gray);
+}
+
+.icon-button.active {
+  outline: 2px solid var(--color-primary);
+}
+
+.account-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+/* Basit profil simgesi */
+.account-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+
+.account-icon::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 6px;
+  border-radius: 3px 3px 0 0;
+  background: var(--color-text);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-label {
+  font-weight: 500;
+}
+.category-nav {
+  display: flex;
+  justify-content: center;
+  padding: 6px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eef0f4;
+}
+
+.category-list {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1440px;
+  justify-content: center;
+}
+
+.category-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  color: #4b5563;
+  border-radius: 999px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+.category-item:hover {
+  color: var(--color-primary);
+  background-color: #eef2ff;
+}
+
+.category-item .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.wishlist-icon .icon {
+  stroke: var(--color-text); /* #1A1A1A – siyah */
+}
+
+.icon-button:hover .wishlist-icon .icon {
+  stroke: var(--color-primary);
+}

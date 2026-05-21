@@ -1,0 +1,188 @@
+/* src/styles/CheckoutPage.css */
+
+.checkout-container {
+  display: flex;
+  gap: 32px;
+  padding: 40px;
+  background: #f2f2f2;
+  min-height: 100vh;
+}
+
+.checkout-left,
+.checkout-right {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-left {
+  flex: 1.5;
+}
+
+.checkout-right {
+  flex: 1;
+  height: fit-content;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0033a0;
+  margin-bottom: 20px;
+}
+
+/* ========== ADRES FORMU ========== */
+/* Grid: iki sütun, hücreler arası 16px boşluk */
+.address-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Input’lar grid hücresini tamamen kaplasın */
+.address-form input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* Placeholder rengi */
+.address-form input::placeholder {
+  color: #666;
+  font-weight: 500;
+}
+
+/* “Save Address” butonu tüm sütunları kaplasın */
+.address-form .save-address-btn {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: #0033a0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.address-form .save-address-btn:hover {
+  background: #002277;
+}
+
+/* ========== ÖDEME FORMU ========== */
+.payment-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.payment-form input::placeholder {
+  color: #666;
+  font-weight: 500;
+}
+
+/* ========== KAYITLI ADRES GÖRÜNÜMÜ ========== */
+.saved-address {
+  background: #f0f4ff;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+.saved-address p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ========== SİPARİŞ ÖZETİ ========== */
+.checkout-right .summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #eee;
+  color: #333;
+}
+
+.summary-total strong {
+  color: #0033a0;
+}
+
+.pay-button {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px;
+  background: #0033a0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pay-button:hover {
+  background: #002277;
+}
+
+/* ========== GENEL DURUMLAR ========== */
+.loading,
+.error-message,
+.empty-basket {
+  text-align: center;
+  width: 100%;
+}
+
+.empty-basket h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* ========== MOBİL ========== */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .address-form,
+  .payment-form {
+    grid-template-columns: 1fr;
+  }
+  .address-form .save-address-btn,
+  .pay-button {
+    grid-column: 1 / -1;
+  }
+}

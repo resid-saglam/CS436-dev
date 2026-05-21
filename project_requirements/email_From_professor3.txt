@@ -1,0 +1,20 @@
+	
+Dear all,
+
+There are questions about how you should setup the system. I can not answer these questions for you as I do not know the details of your project.
+However, you can refer to all our past courses to prepare a set of questions and then answer them on your own to create your guideline.
+
+Recommended approach;
+ 
+Clarify what you are designing and your end goal
+Identify the needs of main building blocks of a robust system.
+Compute Resources: VMs or Containers? How many of them? Specs for VMs (CPU, RAM, etc.)? Is it worth using serverless functions?
+Storage: Which storage type best fits your need? Which storage technology you may want to connect to? Do you do lots of read/write (disk speed)?
+Network: Is low latency a requirement? Do you transfer lots of data, requiring high bandwidth usage? How will you ensure network security (sec groups, public/private subnets, IGW vs NAT GW, Access Control Lists, ..)?
+Security: This depends on what you design. There is no specific blueprint. Check out the slides to see attack types and potential security measures. You can use AI guidance to check for more options, especially available on AWS.
+Service Availability: How did you design your system to ensure your system is always available and accessible? (Refer to corresponding slides for sub-items and determine how you can address these sub-items based on your system design)
+Monitoring: How will you set your system up to ensure there is nothing wrong at runtime? Logs? Alarms? Notifications (Pushed Notis, Emails, ..)
+Compatibility: Does your system serve on multiple device types / envrionments? If yes, state how you ensured the compatibility with various end points
+The above list is just the starting point of a well-designed system. You can use AI tools to enrich your system's behavior and surroundings further.
+ 
+While explaining your system in your report, I expect to see the answers to these questions, with an emphasis on what your design options were and why you made your decisions.

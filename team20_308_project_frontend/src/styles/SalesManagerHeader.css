@@ -1,0 +1,39 @@
+.mgr-header {
+  height: 48px;
+  background: #0d47a1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  color: #fff;
+  gap: 32px;
+}
+.mgr-header nav ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mgr-header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.mgr-header nav a.active {
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+}
+.logout-btn {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background: #fff;
+  color: #0d47a1;
+}

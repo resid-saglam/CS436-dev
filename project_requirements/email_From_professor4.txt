@@ -1,0 +1,5 @@
+One more note about your presentations.
+
+I need the team (it can be all of you, or just one of you presenting, both OK) to showcase what you have done in your project. I prefer you to not follow a ppt presentation.
+
+For example, you can show the high level diagram of your system and explain it in not more than one minute. Then, you can open AWS services (you can open each one on a separate browser tab to not lose time during recording) and explain which service you used for what purpose while building your system. You can end with a demo of your system's output (like if it's a webpage, open the webpage and browse OR if it's a mobile app, open the simulator and show some screens, etc.).

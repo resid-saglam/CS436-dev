@@ -1,0 +1,117 @@
+.order-history-page {
+  padding: 40px;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  color: #000;
+}
+
+.order-history-page h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #111;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+.order-card h4 {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #000;
+}
+
+.order-card p {
+  margin: 4px 0;
+  color: #333;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.order-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.order-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: #f2f2f2;
+  border-radius: 8px;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 12px;
+  color: #111;
+}
+
+/* ✅ BUTTON olarak kullanılan fatura linki */
+.invoice-link {
+  background: none;
+  border: none;
+  color: #0033a0;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.address-block {
+  margin-top: 8px;
+  background: #f8f8f8;
+  padding: 8px 12px;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.invoice-link:hover {
+  color: #002277;
+}
+
+.order-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* İptal butonu – gri arka plan */
+.cancel-btn {
+  background: #f1f1f1;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Refund butonu */
+.refund-btn {
+  background: #fdf1d6;
+  border: 1px solid #e7c67c;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.refund-btn:hover {
+  background: #f7e4b8;
+}

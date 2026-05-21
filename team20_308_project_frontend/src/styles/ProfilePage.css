@@ -1,0 +1,133 @@
+/* Arka plan – sitenin genel tonuyla uyumlu */
+.profile-wrapper {
+  min-height: 100vh;
+  padding: 40px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Kart */
+.profile-card {
+  width: 100%;
+  max-width: 560px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  padding: 32px;
+}
+
+/* Üst kısım (avatar + selamlama) */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* Basit dairesel avatar */
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #143fa0; /* TechPoint mavisi */
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Selamlama metni */
+.greeting h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1a1a1a;
+}
+.greeting p {
+  margin: 4px 0 0;
+  color: #555;
+}
+
+/* Butonlar */
+.profile-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  flex: 1 1 200px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn {
+  background: #143fa0;
+  color: #fff;
+}
+
+.secondary-btn {
+  background: #f1f1f1;
+  color: #1a1a1a;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobil uyum: ≤768px’de dikey dizilim */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-actions {
+    flex-direction: column;
+  }
+}
+/* adress kısmı */
+.profile-address {
+  margin-bottom: 24px;
+}
+
+.profile-address h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+/* Form */
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.address-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.address-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.small-btn {
+  margin-top: 8px;
+  width: fit-content;
+  padding: 8px 18px;
+}

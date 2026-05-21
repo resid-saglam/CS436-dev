@@ -1,0 +1,60 @@
+/* src/styles/pmPage.css */
+
+.pm-page-container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.pm-page-container h1 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.pm-section {
+  margin-bottom: 30px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pm-section h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.pm-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pm-section li {
+  margin-bottom: 10px;
+}
+
+.pm-section button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.pm-section button:hover {
+  background-color: #0056b3;
+}
+/* ─────────────  Orders tablosunu ortala  ───────────── */
+.pm-wrapper {
+  max-width: 1350px; /* 1200-1600 px aralığında istediğini seç */
+  margin: 0 auto; /* sağ-sol otomatik → ortalar */
+  padding: 40px 24px; /* sayfa içi boşluk */
+}
+
+/* Tablo tam genişlik kullansın */
+.pm-wrapper .inv-table {
+  width: 100%;
+}

@@ -1,0 +1,120 @@
+/* make page truly full-width */
+.inv-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* center title but allow full width below */
+.inv-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #143fa0;
+  text-align: center;
+}
+
+/* controls row */
+.inv-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.inv-control-group {
+  display: flex;
+  flex-direction: column;
+}
+.inv-control-group label {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.inv-control-group input[type="date"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* buttons */
+.inv-btn {
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.inv-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.inv-btn--primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+.inv-btn--primary:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+.inv-btn--outline {
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+.inv-btn--outline:hover:not(:disabled) {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* error */
+.inv-error {
+  color: #c00;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* full-width table */
+.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.inv-table th,
+.inv-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+}
+.inv-table thead {
+  background-color: #e3edff;
+}
+.inv-table thead th {
+  color: #143fa0;
+  font-weight: 600;
+}
+.inv-table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+.inv-table tbody tr:nth-child(even) {
+  background-color: #f9fbff;
+}
+.inv-table tbody tr:hover {
+  background-color: #e6f0ff;
+}
+
+/* action buttons in each row */
+.inv-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ensure the entire viewport width is used */
+body, #root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}

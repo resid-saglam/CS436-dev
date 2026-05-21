@@ -1,0 +1,18 @@
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: #143fa0;
+    color: #fff;
+}
+
+.admin-logo { cursor: pointer; display: flex; align-items: center; gap: 10px; }
+.circle      { width:32px; height:32px; border-radius:50%; background:#fff; color:#143fa0;
+    display:flex; align-items:center; justify-content:center; font-weight:700; }
+.title       { font-size:18px; font-weight:600; }
+
+.admin-nav   { display:flex; gap:20px; }
+.nav-link    { color:#fff; text-decoration:none; font-weight:500; }
+.logout      { background:none; border:none; color:#fff; cursor:pointer; }
+.nav-link:hover { text-decoration:underline; }

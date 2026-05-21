@@ -1,0 +1,253 @@
+/* wrapper & overall page */
+.inv-wrapper {
+  max-width: 100%;
+  margin: 1rem auto;
+  padding: 0 0.5rem;
+  font-family: system-ui, sans-serif;
+}
+.inv-title {
+  font-size: 1.8rem;
+  color: #143fa0;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+.inv-loading,
+.inv-error {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin: 3rem 0;
+}
+
+/* toolbar */
+.inv-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.inv-btn {
+  font: inherit;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.inv-btn-add {
+  background-color: #0a3fa8;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.inv-btn-add:hover {
+  background-color: #083680;
+}
+
+/* table container */
+.inv-table-container {
+  overflow-x: auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* table */
+.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.inv-table thead {
+  background: #0a3fa8;
+}
+.inv-table th,
+.inv-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+.inv-table th {
+  color: #fff;
+}
+.inv-table tbody tr:nth-child(odd) {
+  background: #f6f8ff;
+}
+.inv-table tbody tr:hover {
+  background: #eaf0ff;
+}
+
+/* name/model */
+.inv-name {
+  font-weight: 500;
+}
+.inv-model {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* stock cell */
+.inv-stock-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.inv-stock-input {
+  width: 4ch;
+  text-align: center;
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.inv-btn-stock {
+  background: #f0f0f0;
+  padding: 0.25rem 0.6rem;
+}
+.inv-btn-stock:hover:not(:disabled) {
+  background: #e0e0e0;
+}
+.inv-btn-save {
+  background: #28a745;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+}
+.inv-btn-save:hover {
+  background: #218838;
+}
+
+/* delete button */
+.inv-btn-del {
+  background: #dc3545;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+}
+.inv-btn-del:hover {
+  background: #c82333;
+}
+
+/* highlight products missing price */
+.no-price {
+  background: #ffecec;
+}
+.no-price td {
+  color: #c73737;
+}
+
+/* modal backdrop */
+.inv-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* modal window */
+.inv-modal-window {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+.inv-modal-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+.inv-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.inv-btn-cancel,
+.inv-btn-confirm {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 1rem;
+}
+.inv-btn-cancel {
+  background: #6c757d;
+  color: #fff;
+}
+.inv-btn-cancel:hover {
+  background: #5a6268;
+}
+.inv-btn-confirm {
+  background: #dc3545;
+  color: #fff;
+}
+.inv-btn-confirm:hover {
+  background: #c82333;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------
+   STOCK hücresindeki –  +  💾  butonlarını düzelt
+--------------------------------------------- */
+
+/* eksi / artı */
+.inv-btn-stock {
+  /* arka plan açık gri */
+  background: #f0f0f0 !important;
+  color: #0a3fa8;
+  border: 1px solid #cfd3dc;
+  padding: 0.25rem 0.6rem;
+}
+.inv-btn-stock:hover:not(:disabled) {
+  background: #e6e6e6 !important;
+}
+
+/* Kaydet (floppy) */
+.inv-btn-save {
+  /* beyaz zemin + ince çerçeve */
+  background: #fff !important;
+  color: #0a3fa8;
+  border: 1px solid #0a3fa8;
+  padding: 0.25rem 0.6rem;
+}
+.inv-btn-save:hover {
+  background: #f4f8ff !important;
+}
+
+/* --------------------------------------------
+     Sil (Delete) butonunu kesinlikle kırmızı yap
+  --------------------------------------------- */
+.inv-btn-del {
+  /* kırmızı zemin  */
+  background: #dc3545 !important;
+  color: #fff !important;
+  padding: 0.3rem 0.8rem;
+}
+.inv-btn-del:hover {
+  background: #c82333 !important;
+}

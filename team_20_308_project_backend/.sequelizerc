@@ -1,0 +1,16 @@
+// .sequelizerc  (proje kökünde)
+const path = require("path");
+
+module.exports = {
+  // 2.2'de yaratacağımız config dosyasını işaret ediyor
+  config: path.resolve("src", "config", "sequelize-config.js"),
+
+  // Model dosyalarının yolu
+  "models-path": path.resolve("src", "models"),
+
+  // Migration klasörü (zaten `migrations/`)
+  "migrations-path": path.resolve("migrations"),
+
+  // Seeders kullanacaksan
+  "seeders-path": path.resolve("seeders"),
+};

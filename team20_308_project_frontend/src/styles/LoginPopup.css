@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Renk değişkenleri (örnek palet) */
+:root {
+    --color-primary: #0333A0;
+    --color-bg: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-error: #e53935;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+/* Arka plan karartması */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;         /* <--- EN KRİTİK NOKTA */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+/* Popup ana kutusu */
+.popup-container {
+    width: 960px !important;
+    max-width: 95vw !important;
+    background: white;
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+/* Kapat butonu */
+.close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #1A1A1A !important;
+    transition: color var(--transition-speed) ease;
+}
+.close-btn:hover {
+    color:  #e53935 !important;
+}
+
+/* Başlık satırı */
+.popup-header {
+    margin-bottom: 24px;
+    text-align: left;
+}
+.popup-header h2 {
+    font-size: 24px;        /* Bir tık küçültülmüş */
+    color: var(--color-text);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* İçerik: solda form, sağda info */
+.popup-content {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
+    margin-top: 8px !important;
+    flex-wrap: nowrap !important;
+}
+
+/* =========== SOL TARAF: Form =========== */
+.login-left {
+    flex: 1;    /* Esneme payı - solda daha geniş alan */
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hata mesajı */
+.error-message {
+    color: var(--color-error);
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+/* Input alanları */
+.login-left input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text);
+    transition: border-color var(--transition-speed) ease;
+}
+.login-left input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Remember me & Forgot password */
+.login-extras {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0 16px 0;
+    font-size: 14px;
+    color: #666;
+}
+.login-extras label {
+    margin-left: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+.forgot-password span {
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: color var(--transition-speed) ease;
+    font-size: 14px;
+}
+.forgot-password span:hover {
+    color: #02297e;
+}
+
+/* Sign in butonu */
+.sign-in-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+}
+.sign-in-btn:hover {
+    background-color: #02297e;
+}
+.sign-in-btn:active {
+    transform: scale(0.98);
+}
+.sign-in-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* "Not a member?" alt satırı */
+.no-account {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #666;
+}
+.register-link {
+    color: var(--color-primary);
+    margin-left: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.register-link:hover {
+    color: #02297e;
+}
+
+/* =========== SAĞ TARAF: Info Panel =========== */
+.login-right {
+    width: 260px;     /* Sağ kolona sabit bir genişlik */
+    min-width: 240px; /* Çok daralmayı engellemek için */
+    border-left: 1px solid #eee;
+    padding-left: 24px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 0;    /* Üst hizada kalsın */
+}
+.login-right h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.login-right ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;  /* liste elemanları arası boşluk */
+}
+
+.login-right li {
+    font-size: 13px;       /* Bir tık küçük */
+    color: #666;
+    line-height: 1.4;
+}
+.login-right li strong {
+    color: var(--color-text);
+    font-weight: 500;
+}

@@ -1,0 +1,37 @@
+{
+  "name": "cs436-ecommerce-backend",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "jest",
+    "db:seed": "node scripts/seed-demo.js",
+    "db:seed:undo": "node scripts/seed-demo.js --undo",
+    "db:seed:cli": "sequelize-cli db:seed:all",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo:all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Backend API for the CS 436 e-commerce project.",
+  "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.621.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "fontkit": "^1.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
+    "nodemailer": "^6.10.1",
+    "pdfkit": "^0.13.0",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "sequelize-cli": "^6.6.2",
+    "supertest": "^6.3.4"
+  }
+}
