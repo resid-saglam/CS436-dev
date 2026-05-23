@@ -1,0 +1,25 @@
+# Dependencies — rebuilt fresh inside the image by `npm ci`
+node_modules
+npm-debug.log*
+
+# Git + IDE + OS metadata
+.git
+.gitignore
+.gitattributes
+.vscode
+.idea
+.DS_Store
+
+# Local env files — secrets live in AWS Secrets Manager at runtime
+.env
+.env.*
+
+# Tests + docs — not needed in the production image
+tests
+*.test.js
+*.spec.js
+README.md
+
+# The Dockerfile itself + this file
+Dockerfile
+.dockerignore
