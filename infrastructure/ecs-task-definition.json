@@ -1,5 +1,5 @@
 {
-  "_comment": "STUB ECS task definition for the cs436-ecommerce backend. EC2 launch type (course requires use of VMs), bridge networking. Secrets sourced from AWS Secrets Manager (not Parameter Store) per budget-reversal decision 2026-05-19. The secret JSON shape is {host, port, dbname, username, password} for the DB secret and {secret} for the JWT secret. Each Secrets Manager ARN includes a 6-char random suffix AWS appends to the secret name (e.g., 'cs436-ecommerce/db-A1B2C3'); replace placeholders accordingly. See helper/04_workflow_plan.md Step 3.2 + Step 4.5 for the full deployment context.",
+  "_comment": "STUB ECS task definition for the cs436-ecommerce backend. EC2 launch type (course requires use of VMs), bridge networking. Secrets sourced from AWS Secrets Manager (not Parameter Store) per budget-reversal decision 2026-05-19. The secret JSON shape is {host, port, dbname, username, password} for the DB secret and {secret} for the JWT secret. Each Secrets Manager ARN includes a 6-char random suffix AWS appends to the secret name (e.g., 'cs436-ecommerce/db-A1B2C3'); replace placeholders accordingly. DB_HOST below uses the Route 53 private hosted zone DNS name (added 2026-05-23, see helper/steps-indetail-guidance/step-13.5-route53.md) — RDS endpoint hostname remains in the auto-managed secret's 'host' JSON field as a fallback. See helper/04_workflow_plan.md Step 3.2 + Step 4.5 for the full deployment context.",
 
   "family": "cs436-ecommerce-api",
   "requiresCompatibilities": ["EC2"],
@@ -29,7 +29,7 @@
         { "name": "AWS_REGION", "value": "eu-west-1" },
         { "name": "CORS_ORIGIN", "value": "https://<CLOUDFRONT_DNS>" },
         { "name": "EMAIL_FROM", "value": "<verified-ses-sender@example.com>" },
-        { "name": "DB_HOST", "value": "<rds-endpoint>.eu-west-1.rds.amazonaws.com" },
+        { "name": "DB_HOST", "value": "db.cs436-ecommerce.internal" },
         { "name": "DB_PORT", "value": "3306" },
         { "name": "DB_NAME", "value": "online_store" }
       ],
