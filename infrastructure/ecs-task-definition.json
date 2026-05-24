@@ -4,15 +4,15 @@
   "family": "cs436-ecommerce-api",
   "requiresCompatibilities": ["EC2"],
   "networkMode": "bridge",
-  "executionRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/cs436-ecommerce-ecs-execution",
-  "taskRoleArn": "arn:aws:iam::<ACCOUNT_ID>:role/cs436-ecommerce-ecs-task",
+  "executionRoleArn": "arn:aws:iam::185472107290:role/cs436-ecommerce-ecs-execution",
+  "taskRoleArn": "arn:aws:iam::185472107290:role/cs436-ecommerce-ecs-task",
   "cpu": "512",
   "memory": "512",
 
   "containerDefinitions": [
     {
       "name": "ecommerce-api",
-      "image": "<ACCOUNT_ID>.dkr.ecr.eu-west-1.amazonaws.com/ecommerce-backend:<GIT_SHA>",
+      "image": "185472107290.dkr.ecr.eu-west-1.amazonaws.com/ecommerce-backend:latest",
       "essential": true,
       "cpu": 512,
       "memory": 512,
@@ -27,8 +27,8 @@
         { "name": "NODE_ENV", "value": "production" },
         { "name": "PORT", "value": "5002" },
         { "name": "AWS_REGION", "value": "eu-west-1" },
-        { "name": "CORS_ORIGIN", "value": "https://<CLOUDFRONT_DNS>" },
-        { "name": "EMAIL_FROM", "value": "<verified-ses-sender@example.com>" },
+        { "name": "CORS_ORIGIN", "value": "https://d<random>.cloudfront.net" },
+        { "name": "EMAIL_FROM", "value": "resid.saglam@sabanciuniv.edu" },
         { "name": "DB_HOST", "value": "db.cs436-ecommerce.internal" },
         { "name": "DB_PORT", "value": "3306" },
         { "name": "DB_NAME", "value": "online_store" }
@@ -36,15 +36,15 @@
       "secrets": [
         {
           "name": "DB_USER",
-          "valueFrom": "arn:aws:secretsmanager:eu-west-1:<ACCOUNT_ID>:secret:cs436-ecommerce/db-<6char>:username::"
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:185472107290:secret:rds!db-e63c1cc2-54de-4239-bafd-22921ba7d2be-1hmHwu:username::"
         },
         {
           "name": "DB_PASS",
-          "valueFrom": "arn:aws:secretsmanager:eu-west-1:<ACCOUNT_ID>:secret:cs436-ecommerce/db-<6char>:password::"
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:185472107290:secret:rds!db-e63c1cc2-54de-4239-bafd-22921ba7d2be-1hmHwu:password::"
         },
         {
           "name": "JWT_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:eu-west-1:<ACCOUNT_ID>:secret:cs436-ecommerce/jwt-<6char>:secret::"
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:185472107290:secret:cs436-ecommerce/jwt-LZMrMq:secret::"
         }
       ],
       "healthCheck": {
@@ -74,6 +74,8 @@
 
   "tags": [
     { "key": "Project", "value": "CS436-Ecommerce" },
+    { "key": "Owner", "value": "Resid" },
+    { "key": "Environment", "value": "Demo" },
     { "key": "Layer", "value": "compute" }
   ]
 }
