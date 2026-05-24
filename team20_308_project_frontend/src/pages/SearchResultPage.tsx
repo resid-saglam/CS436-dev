@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SearchResultCard from "../components/SearchResultCard";
 import "../styles/SearchResultPage.css";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 interface Product {
   id: number;
   name: string;
@@ -39,7 +41,7 @@ const SearchResultsPage: React.FC = () => {
 
     setLoading(true);
     try {
-      let url = `http://localhost:5002/api/products?search=${encodeURIComponent(
+      let url = `${API_BASE}/products?search=${encodeURIComponent(
         query
       )}`;
       if (sort) url += `&sort=${sort}`;

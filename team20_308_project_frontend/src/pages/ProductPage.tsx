@@ -9,6 +9,8 @@ import "../styles/ProductPage.css";
 import { useWishlist } from "../context/WishlistContext";
 import { Heart } from "lucide-react";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 interface Product {
   id: number;
   name: string;
@@ -59,7 +61,7 @@ const ProductPage: React.FC = () => {
         setProduct(p);
 
         /* ortalama puan */
-        const r = await fetch(`http://localhost:5002/api/ratings/${id}`);
+        const r = await fetch(`${API_BASE}/ratings/${id}`);
         if (r.ok) {
           const { averageRating } = await r.json();
           setAverageRating(averageRating || null);
@@ -68,7 +70,7 @@ const ProductPage: React.FC = () => {
         /* kullanıcının kendi puanı */
         if (token) {
           const ur = await fetch(
-            `http://localhost:5002/api/ratings/user/${id}`,
+            `${API_BASE}/ratings/user/${id}`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           if (ur.ok) {
@@ -105,7 +107,7 @@ const ProductPage: React.FC = () => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:5002/api/ratings", {
+      const res = await fetch(`${API_BASE}/ratings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

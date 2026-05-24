@@ -7,6 +7,8 @@ import { FaTrash } from "react-icons/fa";
 import LoginPopup from "../components/LoginPopup";
 import "../styles/BasketPage.css";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 interface CartItem {
   id: number;
   quantity: number;
@@ -42,7 +44,7 @@ const BasketPage: React.FC = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      let url = "http://localhost:5002/api/cart";
+      let url = `${API_BASE}/cart`;
 
       const headers: Record<string, string> = {
         "Content-Type": "application/json",
@@ -70,7 +72,7 @@ const BasketPage: React.FC = () => {
 
   const handleRemove = async (cartItemId: number, productId: number) => {
     try {
-      await fetch(`http://localhost:5002/api/cart/${cartItemId}`, {
+      await fetch(`${API_BASE}/cart/${cartItemId}`, {
         method: "DELETE",
       });
       setCartItems((prev) => prev.filter((i) => i.id !== cartItemId));

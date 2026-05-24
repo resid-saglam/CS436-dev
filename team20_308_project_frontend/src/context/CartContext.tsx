@@ -9,6 +9,8 @@ import React, {
   ReactNode,
 } from "react";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 /* --------------------------------------------------------------------------
      1) Tipler
      -------------------------------------------------------------------------- */
@@ -70,7 +72,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
       const token = localStorage.getItem("token");
       const sessionId = getOrCreateSessionId();
 
-      let url = "http://localhost:5002/api/cart";
+      let url = `${API_BASE}/cart`;
       const headers: Record<string, string> = {
         "Content-Type": "application/json",
       };
@@ -139,7 +141,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
         payload.sessionId = sessionId;
       }
 
-      const res = await fetch("http://localhost:5002/api/cart/add", {
+      const res = await fetch(`${API_BASE}/cart/add`, {
         method: "POST",
         headers,
         body: JSON.stringify(payload),
@@ -165,7 +167,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
       const token = localStorage.getItem("token");
       const sessionId = getOrCreateSessionId();
 
-      let url = `http://localhost:5002/api/cart/${id}`;
+      let url = `${API_BASE}/cart/${id}`;
       const headers: Record<string, string> = {
         "Content-Type": "application/json",
       };
@@ -191,7 +193,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
       const sessionId = localStorage.getItem("sessionId");
       if (!token || !sessionId) return;
 
-      const res = await fetch("http://localhost:5002/api/cart/merge", {
+      const res = await fetch(`${API_BASE}/cart/merge`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

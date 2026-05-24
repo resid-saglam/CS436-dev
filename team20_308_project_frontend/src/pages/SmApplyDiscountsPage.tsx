@@ -4,6 +4,8 @@ import { useToast } from "../context/ToastContext";
 import { applyDiscountService } from "../services/discountService";
 import "../styles/discounts.css";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 interface Product {
   id: number;
   name: string;
@@ -18,7 +20,7 @@ const SmApplyDiscountsPage: React.FC = () => {
 
   /* ---------- 1) Fetch priced products ---------- */
   useEffect(() => {
-    fetch("http://localhost:5002/api/products?includeUnpriced=1", {
+    fetch(`${API_BASE}/products?includeUnpriced=1`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((r) => r.json())

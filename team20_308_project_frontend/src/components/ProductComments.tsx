@@ -3,6 +3,8 @@ import { useToast } from "../context/ToastContext";
 import { jwtDecode } from "jwt-decode";
 import "../styles/ProductComments.css";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 interface Comment {
   id: number;
   text: string;
@@ -36,7 +38,7 @@ const ProductComments: React.FC<ProductCommentsProps> = ({ productId }) => {
   const fetchComments = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5002/api/comments/${productId}`
+        `${API_BASE}/comments/${productId}`
       );
       if (res.ok) {
         const data = await res.json();
@@ -71,8 +73,8 @@ const ProductComments: React.FC<ProductCommentsProps> = ({ productId }) => {
     const existing = comments.find((c) => c.User?.id === currentUserId);
 
     const url = existing
-      ? `http://localhost:5002/api/comments/${existing.id}`
-      : "http://localhost:5002/api/comments";
+      ? `${API_BASE}/comments/${existing.id}`
+      : `${API_BASE}/comments`;
     const method = existing ? "PUT" : "POST";
 
     try {

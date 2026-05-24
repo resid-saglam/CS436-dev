@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 interface Address {
   city: string;
   district: string;
@@ -60,7 +62,7 @@ const CheckoutPage: React.FC = () => {
   const fetchAddress = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5002/api/users/me/address",
+        `${API_BASE}/users/me/address`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -82,7 +84,7 @@ const CheckoutPage: React.FC = () => {
 
   const fetchBasket = async () => {
     try {
-      const res = await axios.get("http://localhost:5002/api/cart", {
+      const res = await axios.get(`${API_BASE}/cart`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const items = res.data || [];
@@ -110,7 +112,7 @@ const CheckoutPage: React.FC = () => {
     }
     try {
       const res = await axios.put(
-        "http://localhost:5002/api/users/me/address",
+        `${API_BASE}/users/me/address`,
         { address: formAddress },
         {
           headers: {
@@ -156,7 +158,7 @@ const CheckoutPage: React.FC = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:5002/api/checkout/pay",
+        `${API_BASE}/checkout/pay`,
         {
           cardHolder: cardInfo.cardHolder,
           cardNumber: cardInfo.cardNumber.replace(/\s/g, ""),
@@ -176,7 +178,7 @@ const CheckoutPage: React.FC = () => {
         setBasketItems([]);
 
         const invoiceRes = await axios.get(
-          `http://localhost:5002/api/orders/invoice/${res.data.orderId}`,
+          `${API_BASE}/orders/invoice/${res.data.orderId}`,
           {
             responseType: "blob",
             headers: { Authorization: `Bearer ${token}` },

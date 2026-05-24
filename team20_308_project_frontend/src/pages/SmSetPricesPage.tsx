@@ -1,6 +1,9 @@
 // src/pages/SmSetPricesPage.tsx
 import React, { useEffect, useState } from "react";
 import "../styles/SmSetPricesPage.css";
+
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5002/api";
+
 /* ------------------------------------------------------------------ */
 /* Types                                                              */
 /* ------------------------------------------------------------------ */
@@ -24,7 +27,7 @@ const SmSetPricesPage: React.FC = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("http://localhost:5002/api/products?includeUnpriced=1", {
+        const res = await fetch(`${API_BASE}/products?includeUnpriced=1`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         const raw = await res.json();
@@ -62,7 +65,7 @@ const SmSetPricesPage: React.FC = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5002/api/sales/products/${id}/price`,
+        `${API_BASE}/sales/products/${id}/price`,
         {
           method: "PUT",
           headers: {
