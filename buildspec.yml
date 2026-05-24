@@ -1,0 +1,36 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_REGION: "eu-west-1"
+    ECR_REPO: "ecommerce-backend"
+    CONTAINER_NAME: "ecommerce-api"
+    # ACCOUNT_ID is injected as a CodeBuild project env var (plain text).
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR…"
+      - aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com"
+      - cd "$CODEBUILD_SRC_DIR/team_20_308_project_backend"
+      - npm audit --omit=dev || true # surface CVEs but never fail the build on an unfixable transitive
+
+  build:
+    commands:
+      - cd "$CODEBUILD_SRC_DIR/team_20_308_project_backend"
+      - REPO_URI="$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO"
+      - echo "Building $REPO_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION (native x86_64 — no buildx needed)"
+      - docker build -t "$REPO_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION" -t "$REPO_URI:latest" .
+
+  post_build:
+    commands:
+      - REPO_URI="$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO"
+      - docker push "$REPO_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION"
+      - docker push "$REPO_URI:latest"
+      # Write imagedefinitions.json to the SOURCE ROOT so the artifact path matches.
+      - printf '[{"name":"%s","imageUri":"%s"}]' "$CONTAINER_NAME" "$REPO_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION" > "$CODEBUILD_SRC_DIR/imagedefinitions.json"
+      - cat "$CODEBUILD_SRC_DIR/imagedefinitions.json"
+
+artifacts:
+  files:
+    - imagedefinitions.json
