@@ -26,6 +26,11 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
+// GET /api/version — pipeline acceptance probe
+app.get("/api/version", (req, res) =>
+  res.json({ version: "1.1", deployedBy: "codepipeline", at: new Date().toISOString() }),
+);
+
 // Route dosyaları
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
